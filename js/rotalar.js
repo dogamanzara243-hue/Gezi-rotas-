@@ -12,8 +12,20 @@ window.rotalar = [
     sezon: "Her Mevsim",
     gorsel: "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&q=80&w=800",
     // 🌐 Dış repo yönlendirmesi (Yeni sekmede açılması için target="_blank" kullanabilirsin)
-    link: "https://dogamanzara243-hue.github.io/gezi-rotasi-izmir/#kordon-asansor",
+    link: "https://dogamanzara243-hue.github.io/gezi-rotasi-istanbul/",
     aramaKelimeleri: "İstanbul Ayasofya Sultanahmet Boğaz Tarih"
-  }
+  }, 
+   
+   {
+    id: "izmir",
+    baslik: "İzmir Gezi Rehberi: Ege'nin İncisinde Gezilecek En Güzel 10 Yer",
+    konum: "İzmir, Türkiye",
+    kategori: "tarih",
+    kategoriEtiket: "Tarihi Yerler",
+    sezon: "İlkbahar / Sonbahar",
+    gorsel: "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&w=800&q=80&fm=webp",
+    link: "https://dogamanzara243-hue.github.io/gezi-rotasi-izmir/#kordon-asansor",
+    aramaKelimeleri: "izmir efes cesme alacati kemeralti kordon boyoz konak saat kulesi sirince urla foca tarihi asansor izban cumbali tas evler ege mutfagi kumru karaburun seferihisar karataş karsiyaka alsancak"
+   }
   
 ];
