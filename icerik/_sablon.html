@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEKAN ADI Gezi Rehberi - GezginRehberi</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Harici Özel CSS (Bir üst klasördeki CSS'e bağlanır) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="../index.html" class="flex items-center gap-2">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center text-white shadow-lg">
+                    <i class="fa-solid fa-compass text-xl"></i>
+                </div>
+                <span class="text-xl font-extrabold text-slate-900">GezginRehberi</span>
+            </a>
+            <a href="../index.html" class="text-sm font-semibold text-emerald-600 hover:underline">← Ana Sayfaya Dön</a>
+        </div>
+    </header>
+
+    <!-- Üst Banner Reklam Alanı -->
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="ad-banner-top">
+            <span>- REKLAM ALANI (GOOGLE ADSENSE YATAY BANNER) -</span>
+        </div>
+    </div>
+
+    <!-- Detay İçerik Alanı -->
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        <!-- Başlık ve Konum -->
+        <div class="mb-6">
+            <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-lg">KATEGORİ ADI</span>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">MEKAN BAŞLIĞI BURAYA GELCEK</h1>
+            <p class="text-sm text-slate-500 mt-2 flex items-center gap-2">
+                <i class="fa-solid fa-location-dot text-emerald-600"></i> Şehir / İlçe, Türkiye
+            </p>
+        </div>
+
+        <!-- Görsel Galeri / Öne Çıkan Görsel -->
+        <div class="rounded-2xl overflow-hidden h-[350px] sm:h-[450px] mb-8 shadow-md">
+            <img src="https://images.unsplash.com/photo-1641128302061-4c6e9a78f995?auto=format&fit=crop&q=80&w=1200" alt="Mekan Görseli" class="w-full h-full object-cover">
+        </div>
+
+        <!-- 2 Kolonlu Düzen: Sol (İçerik) + Sağ (Sidebar & Harita) -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            
+            <!-- Sol Kolon: Metinler ve İçerik -->
+            <div class="lg:col-span-2 bg-white p-6 sm:p-8 rounded-2xl border border-slate-100 shadow-sm">
+                <h2 class="text-xl font-bold text-slate-900 mb-4">Mekan Hakkında</h2>
+                <p class="text-slate-600 leading-relaxed mb-6">
+                    Buraya mekan ile ilgili detaylı gezi yazısı, tarihi bilgileri ve gezginler için tavsiyelerinizi yazabilirsiniz.
+                </p>
+
+                <!-- Metin İçi Reklam Alanı -->
+                <div class="ad-in-article">
+                    <span>- REKLAM ALANI (METİN İÇİ ESNEK ADSENSE) -</span>
+                </div>
+
+                <h3 class="text-lg font-bold text-slate-900 mt-6 mb-3">Görülmesi Gereken Önemli Noktalar</h3>
+                <ul class="list-disc list-inside text-slate-600 space-y-2 mb-6">
+                    <li>Önemli nokta 1</li>
+                    <li>Önemli nokta 2</li>
+                    <li>Önemli nokta 3</li>
+                </ul>
+            </div>
+
+            <!-- Sağ Kolon: Sidebar, Harita ve Affiliate Butonları -->
+            <aside class="space-y-6">
+                <!-- Hızlı Bilgi Kartı -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm space-y-4">
+                    <h3 class="font-bold text-slate-900 border-b border-slate-100 pb-3">Hızlı Seyahat Bilgileri</h3>
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-slate-500">En İyi Sezon:</span>
+                        <span class="font-semibold text-slate-800">İlkbahar / Sonbahar</span>
+                    </div>
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-slate-500">Ortalama Süre:</span>
+                        <span class="font-semibold text-slate-800">1-2 Gün</span>
+                    </div>
+
+                    <!-- Affiliate Otel / Biltet Rezervasyon Butonu -->
+                    <a href="https://booking.com" target="_blank" class="cta-affiliate-btn mt-4">
+                        <i class="fa-solid fa-hotel"></i> En Uygun Otelleri İncele
+                    </a>
+                </div>
+
+                <!-- Google Maps Harita Entegrasyonu -->
+                <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm">
+                    <h3 class="font-bold text-slate-900 mb-3 text-sm">Konum ve Harita</h3>
+                    <div class="aspect-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100000!2d34.8!3d38.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDM2JzAwLjAiTiAzNMK1NDgnMDAuMCJF!5e0!3m2!1str!2str!4v1600000000000!5m2!1str!2str" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <!-- Sidebar Dikey Reklam Alanı -->
+                <div class="ad-sidebar">
+                    <span>- REKLAM ALANI (KARE / DİKEY ADSENSE) -</span>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-100 py-8 text-center text-xs text-slate-500 mt-12">
+        <p>&copy; 2026 GezginRehberi. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <!-- Script Bağlantısı -->
+    <script src="../js/main.js"></script>
+</body>
+  </html>
