@@ -1,9 +1,9 @@
 /* ==========================================================================
-   GEZGİN REHBERİ - DİNAMİK KART ÜRETİCİ VE FİLTRELEME MANTIĞI
+   GEZGİN REHBERİ - DİNAMİK KART VE FİLTRELEME MANTIĞI (GÜVENLİ SÜRÜM)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Mobil Menü Toggle
+  // Mobil Menü Mantığı
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
 
@@ -13,10 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. Dinamik Kartları Ekran Yüklenince Üret
-  renderCards(rotalar);
+  // Kartları Yükle (rotalar tanımlı mı kontrol et)
+  if (typeof rotalar !== 'undefined' && Array.isArray(rotalar)) {
+    renderCards(rotalar);
+  } else {
+    console.error("rotalar.js dosyası bulunamadı veya 'rotalar' dizisi tanımlanmadı!");
+  }
 
-  // 3. Arama Kutusu Dinleyicisi
+  // Arama Dinleyicisi
   const searchInput = document.getElementById('search-input');
   if (searchInput) {
     searchInput.addEventListener('input', filterDestinations);
@@ -25,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 let activeCategory = 'all';
 
-// Kartları JS Verisinden DOM'a Basan Fonksiyon
+// Kartları Ekrana Basan Fonksiyon
 function renderCards(dataList) {
   const container = document.getElementById('cards-grid');
   if (!container) return;
@@ -34,19 +38,19 @@ function renderCards(dataList) {
 
   dataList.forEach(item => {
     const cardHTML = `
-      <div class="destination-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm" 
+      <div class="destination-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-lg" 
            data-category="${item.kategori}" 
            data-title="${item.aramaKelimeleri}">
           <div class="relative h-52">
               <img src="${item.gorsel}" alt="${item.baslik}" loading="lazy" class="w-full h-full object-cover">
-              <span class="absolute top-3 left-3 bg-white/90 text-slate-800 text-xs font-bold px-2.5 py-1 rounded-lg">${item.kategoriEtiket}</span>
+              <span class="absolute top-3 left-3 bg-white/90 text-slate-800 text-xs font-bold px-2.5 py-1 rounded-lg shadow-sm">${item.kategoriEtiket}</span>
           </div>
           <div class="p-5">
               <h3 class="text-lg font-bold text-slate-900">${item.baslik}</h3>
               <p class="text-xs text-slate-500 mt-1"><i class="fa-solid fa-location-dot"></i> ${item.konum}</p>
               <div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between">
                   <span class="text-xs text-slate-500">Sezon: <strong>${item.sezon}</strong></span>
-                  <a href="${item.link}" class="text-xs font-bold text-emerald-600 hover:underline">Detayları Gör →</a>
+                  <a href="${item.link}" class="text-xs font-bold text-emerald-600 hover:text-emerald-700 flex items-center gap-1">Detayları Gör <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
               </div>
           </div>
       </div>
@@ -57,6 +61,7 @@ function renderCards(dataList) {
   updateCount(dataList.length);
 }
 
+// Kategori Filtreleme
 function setCategory(category) {
   activeCategory = category;
 
@@ -74,6 +79,7 @@ function setCategory(category) {
   filterDestinations();
 }
 
+// Canlı Arama ve Filtreleme
 function filterDestinations() {
   const searchInput = document.getElementById('search-input');
   const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
