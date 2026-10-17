@@ -3,21 +3,16 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Mobil Menü Mantığı
+  // Mobil Menü
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
-
   if (mobileMenuBtn && mobileMenu) {
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
+    mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
   }
 
-  // Kartları Yükle (rotalar tanımlı mı kontrol et)
-  if (typeof rotalar !== 'undefined' && Array.isArray(rotalar)) {
-    renderCards(rotalar);
-  } else {
-    console.error("rotalar.js dosyası bulunamadı veya 'rotalar' dizisi tanımlanmadı!");
+  // Kartları Ekran Yüklenince Üret
+  if (window.rotalar && Array.isArray(window.rotalar)) {
+    renderCards(window.rotalar);
   }
 
   // Arama Dinleyicisi
