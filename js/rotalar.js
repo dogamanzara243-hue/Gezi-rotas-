@@ -24,7 +24,7 @@ window.rotalar = [
     kategoriEtiket: "Tarihi Yerler",
     sezon: "İlkbahar / Sonbahar",
     gorsel: "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&w=800&q=80&fm=webp",
-    link: "https://dogamanzara243-hue.github.io/gezi-rotasi-izmir/#kordon-asansor",
+    link: "https://dogamanzara243-hue.github.io/gezi-rotasi-ankara/",
     aramaKelimeleri: "izmir efes cesme alacati kemeralti kordon boyoz konak saat kulesi sirince urla foca tarihi asansor izban cumbali tas evler ege mutfagi kumru karaburun seferihisar karataş karsiyaka alsancak"
    }, 
   {
@@ -35,7 +35,7 @@ window.rotalar = [
     kategoriEtiket: "Tarihi Yerler",
     sezon: "İlkbahar / Sonbahar",
     gorsel: "https://images.unsplash.com/photo-1584646098378-0874589d76b1?auto=format&fit=crop&fm=webp&q=80&w=800",
-    link: "https://dogamanzara243-hue.github.io/gezi-rotasi-ankara/",
+    link: "https://dogamanzara243-hue.github.io/gezi-rotasi-izmir/#kordon-asansor",
     aramaKelimeleri: "ankara anıtkabir kale kocatepe tunalı çankaya ulus atatürk müze seymenler beypazarı Ankara-simidi gezi-rehberi"
 }
 ];
