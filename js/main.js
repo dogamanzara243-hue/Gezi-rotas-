@@ -1,21 +1,28 @@
 /* ==========================================================================
-   GEZGİN REHBERİ - DİNAMİK KART VE FİLTRELEME MANTIĞI (GÜVENLİ SÜRÜM)
+   GEZGİN REHBERİ - DİNAMİK KART VE FİLTRELEME MANTIĞI
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Mobil Menü
+  // 1. Mobil Menü Toggle
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
+
   if (mobileMenuBtn && mobileMenu) {
-    mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
   }
 
-  // Kartları Ekran Yüklenince Üret
-  if (window.rotalar && Array.isArray(window.rotalar)) {
+  // 2. Kartları Yükle (rotalar tanımlı mı kontrol et)
+  if (typeof window.rotalar !== 'undefined' && Array.isArray(window.rotalar)) {
     renderCards(window.rotalar);
+  } else if (typeof rotalar !== 'undefined' && Array.isArray(rotalar)) {
+    renderCards(rotalar);
+  } else {
+    console.error("rotalar.js dosyası bulunamadı veya 'rotalar' dizisi tanımlanmadı!");
   }
 
-  // Arama Dinleyicisi
+  // 3. Arama Dinleyicisi
   const searchInput = document.getElementById('search-input');
   if (searchInput) {
     searchInput.addEventListener('input', filterDestinations);
@@ -45,7 +52,10 @@ function renderCards(dataList) {
               <p class="text-xs text-slate-500 mt-1"><i class="fa-solid fa-location-dot"></i> ${item.konum}</p>
               <div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between">
                   <span class="text-xs text-slate-500">Sezon: <strong>${item.sezon}</strong></span>
-                  <a href="${item.link}" class="text-xs font-bold text-emerald-600 hover:text-emerald-700 flex items-center gap-1">Detayları Gör <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                  <!-- 📌 target="_blank" ve rel="noopener noreferrer" eklendi -->
+                  <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-emerald-600 hover:text-emerald-700 flex items-center gap-1">
+                      Detayları Gör <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
               </div>
           </div>
       </div>
@@ -66,9 +76,9 @@ function setCategory(category) {
     btn.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-200');
   });
 
-  if (event && event.target) {
-    event.target.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-200');
-    event.target.classList.add('bg-emerald-600', 'text-white', 'shadow-md', 'shadow-emerald-600/20');
+  if (window.event && window.event.target) {
+    window.event.target.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+    window.event.target.classList.add('bg-emerald-600', 'text-white', 'shadow-md', 'shadow-emerald-600/20');
   }
 
   filterDestinations();
