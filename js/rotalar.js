@@ -23,7 +23,7 @@ window.rotalar = [
     kategoriEtiket: "Deniz & Koylar",
     sezon: "İlkbahar / Yaz",
     gorsel: "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&q=80&w=800",
-    link: "https://dogamanzara243-hue.github.io/gezi-rotasi-izmir/",
+    link: "https://dogamanzara243-hue.github.io/gezi-rotasi-izmir/#kordon-asansor",
     aramaKelimeleri: "İzmir Kordon Çeşme Alaçatı Ege"
   },
   {
