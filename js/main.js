@@ -1,9 +1,9 @@
 /* ==========================================================================
-   GEZGİN REHBERİ - INTERAKTİF JAVASCRIPT MANTIĞI
+   GEZGİN REHBERİ - DİNAMİK KART ÜRETİCİ VE FİLTRELEME MANTIĞI
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Mobil Menü Toggle Mantığı
+  // 1. Mobil Menü Toggle
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
 
@@ -13,21 +13,53 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. Arama Girdisi Dinleyicisi
+  // 2. Dinamik Kartları Ekran Yüklenince Üret
+  renderCards(rotalar);
+
+  // 3. Arama Kutusu Dinleyicisi
   const searchInput = document.getElementById('search-input');
   if (searchInput) {
     searchInput.addEventListener('input', filterDestinations);
   }
 });
 
-// Global Kategori Durumu
 let activeCategory = 'all';
 
-// Kategori Seçme Fonksiyonu
+// Kartları JS Verisinden DOM'a Basan Fonksiyon
+function renderCards(dataList) {
+  const container = document.getElementById('cards-grid');
+  if (!container) return;
+
+  container.innerHTML = '';
+
+  dataList.forEach(item => {
+    const cardHTML = `
+      <div class="destination-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm" 
+           data-category="${item.kategori}" 
+           data-title="${item.aramaKelimeleri}">
+          <div class="relative h-52">
+              <img src="${item.gorsel}" alt="${item.baslik}" loading="lazy" class="w-full h-full object-cover">
+              <span class="absolute top-3 left-3 bg-white/90 text-slate-800 text-xs font-bold px-2.5 py-1 rounded-lg">${item.kategoriEtiket}</span>
+          </div>
+          <div class="p-5">
+              <h3 class="text-lg font-bold text-slate-900">${item.baslik}</h3>
+              <p class="text-xs text-slate-500 mt-1"><i class="fa-solid fa-location-dot"></i> ${item.konum}</p>
+              <div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between">
+                  <span class="text-xs text-slate-500">Sezon: <strong>${item.sezon}</strong></span>
+                  <a href="${item.link}" class="text-xs font-bold text-emerald-600 hover:underline">Detayları Gör →</a>
+              </div>
+          </div>
+      </div>
+    `;
+    container.innerHTML += cardHTML;
+  });
+
+  updateCount(dataList.length);
+}
+
 function setCategory(category) {
   activeCategory = category;
 
-  // Buton aktiflik stillerini güncelleme
   const buttons = document.querySelectorAll('.category-btn');
   buttons.forEach(btn => {
     btn.classList.remove('bg-emerald-600', 'text-white', 'shadow-md', 'shadow-emerald-600/20');
@@ -42,7 +74,6 @@ function setCategory(category) {
   filterDestinations();
 }
 
-// Filtreleme ve Arama Algoritması
 function filterDestinations() {
   const searchInput = document.getElementById('search-input');
   const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
@@ -64,15 +95,12 @@ function filterDestinations() {
     }
   });
 
-  const countBadge = document.getElementById('result-count');
-  if (countBadge) {
-    countBadge.innerText = `${visibleCount} Mekan Listeleniyor`;
-  }
+  updateCount(visibleCount);
 }
 
-// Favori Ekleme Uyarısı (İleride LocalStorage'a bağlanabilir)
-function toggleFavorite(event) {
-  event.preventDefault();
-  event.stopPropagation();
-  alert('Bu rota favorilerinize eklendi!');
+function updateCount(count) {
+  const countBadge = document.getElementById('result-count');
+  if (countBadge) {
+    countBadge.innerText = `${count} Mekan Listeleniyor`;
+  }
 }
