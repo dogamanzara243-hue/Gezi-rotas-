@@ -1,9 +1,8 @@
 /* ==========================================================================
    GEZİLECEK YERLER VERİ LİSTESİ
-   Yeni bir yer eklemek için bu listenin en altına virgül koyup ekleme yapın.
    ========================================================================== */
 
-const rotalar = [
+window.rotalar = [
   {
     id: "kapadokya",
     baslik: "Kapadokya Peri Bacaları",
