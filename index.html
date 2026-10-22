@@ -1,167 +1,254 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" class="scroll-smooth">
 <head>
-    <!-- SEO ve Arama Motoru Başlıkları -->
-<title>Türkiye Gezi Rotaları & Gezilecek Yerler Rehberi | GezginRehberi</title>
-<link rel="icon" type="image/png" https://cdn.rafled.com/anime-icons/images/rEwqrX3T3NKUKKUEzkufchuq7RyEpnP3.jpg
-<meta name="description" content="İstanbul, Ankara, İzmir, Kapadokya ve Türkiye'nin en popüler gezilecek yerleri, tarihi rotaları ve doğa harikaları rehberi.">
-<meta name="keywords" content="gezi rehberi, gezilecek yerler, türkiye rotaları, istanbul gezilecek yerler, ankara gezi">
-
-<!-- Sosyal Medya Önizleme Kartları (Open Graph) -->
-<meta property="og:title" content="GezginRehberi - Türkiye Gezi Rotaları">
-<meta property="og:description" content="En güzel gezi rotalarını ve gizli kalmış cennetleri keşfet.">
-<meta property="og:image" content="https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&q=80&w=1200">
-
-<!-- Yapısal Veri (Google için Seyahat Rehberi Tanımı) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "TravelAgency",
-  "name": "GezginRehberi",
-  "url": "https://dogamanzara243-hue.github.io/Gezi-rotas-/",
-  "description": "Türkiye ve dünya gezi rotaları rehberi."
-}
-</script>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gezgin Rehberi - Türkiye and Dünya Gezi Rotaları</title>
-    <!-- Tailwind CSS -->
+    <title>Akıllı Gezi Rehberi - Türkiye Destinasyonları</title>
+    <meta name="description" content="İstanbul, Ankara, İzmir, Antalya ve Türkiye'nin dört bir yanından en seçkin gezi rotaları, otel ve restoran önerileri.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dogamanzara243-hue.github.io/gezi-rotasi/">
+    
+    <!-- Tailwind CSS & FontAwesome -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Harici Özel CSS -->
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body class="bg-slate-50 text-slate-800 antialiased">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 
-    <!-- Header / Navbar -->
-        <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-xs transition-all">
+    <!-- Schema.org WebSite Yapısal Veri -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Akıllı Gezi Rehberi",
+      "url": "https://dogamanzara243-hue.github.io/gezi-rotasi/"
+    }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-indigo-500 selection:text-white">
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-xs transition-all">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <nav class="flex items-center space-x-2 sm:space-x-3 text-sm font-medium">
-                <a href="javascript:history.back()" class="flex items-center text-slate-600 hover:text-theme transition-colors py-1 px-2.5 rounded-lg hover:bg-slate-100" title="Önceki Sayfaya Dön">
+                <a href="javascript:history.back()" class="flex items-center text-slate-600 hover:text-indigo-600 transition-colors py-1 px-2.5 rounded-lg hover:bg-slate-100" title="Önceki Sayfaya Dön">
                     <i class="fa-solid fa-arrow-left mr-2"></i>
                     <span class="hidden sm:inline">Önceki Sayfa</span>
                 </a>
                 <span class="text-slate-300">/</span>
-                <a href="https://dogamanzara243-hue.github.io/gezi-rotasi/" class="flex items-center text-slate-600 hover:text-theme transition-colors p-1.5 rounded-lg hover:bg-slate-100" title="Ana Sayfaya Dön">
-                    <i class="fa-solid fa-house"></i>
-                    <span class="ml-1.5 hidden md:inline">Ana Sayfa</span>
-                </a>
-                <span class="text-slate-300">/</span>
-                <span id="breadcrumb-city" class="text-slate-500 font-normal">İstanbul</span>
-                <span class="text-slate-300">/</span>
-                <span id="breadcrumb-title" class="text-theme-dark font-semibold truncate max-w-[140px] sm:max-w-none"></span>
+                <span class="text-indigo-600 font-semibold">Ana Vitrin</span>
             </nav>
-
             <div class="flex items-center space-x-1 sm:space-x-2">
-                <button id="btn-favorite" class="p-2 text-slate-500 hover:text-rose-500 hover:bg-rose-50 rounded-full transition-all" title="Favorilere Ekle">
+                <button id="btn-favorite" class="p-2 text-slate-500 hover:text-rose-500 hover:bg-rose-50 rounded-full transition-all" title="Favoriler">
                     <i class="fa-regular fa-heart text-lg"></i>
                 </button>
-                <button id="btn-share" class="p-2 text-slate-500 hover:text-theme hover:bg-slate-100 rounded-full transition-all" title="Sayfayı Paylaş">
+                <button id="btn-share" class="p-2 text-slate-500 hover:text-indigo-600 hover:bg-slate-100 rounded-full transition-all" title="Paylaş">
                     <i class="fa-solid fa-share-nodes text-lg"></i>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- Üst Banner Reklam Alanı -->
-    <div class="max-w-7xl mx-auto px-4">
-        <div class="ad-banner-top">
-            <span>- REKLAM ALANI (GOOGLE ADSENSE 728x90 / ESNEK) -</span>
+    <section class="relative bg-slate-900 text-white min-h-[460px] flex items-center justify-center text-center">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1600&q=80&fm=webp" alt="Türkiye Gezi Rotaları" loading="lazy" class="w-full h-full object-cover opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/50 to-transparent"></div>
         </div>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="relative pt-10 pb-16 bg-gradient-to-b from-emerald-50/50 to-slate-50">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
-                Hayalindeki Rota Bir <span class="text-emerald-600">Tık Uzağında</span>
-            </h1>
-            <p class="mt-4 text-slate-600 max-w-xl mx-auto text-sm sm:text-base">
-                Türkiye'nin en popüler gezilecek yerleri, gizli koyları ve tarihi mekânları.
-            </p>
-
-            <!-- Search Bar -->
-            <div class="mt-8 max-w-xl mx-auto bg-white p-2 rounded-2xl shadow-lg border border-slate-100 flex gap-2">
-                <div class="flex-1 flex items-center gap-3 px-4 bg-slate-50 rounded-xl">
-                    <i class="fa-solid fa-magnifying-glass text-slate-400"></i>
-                    <input type="text" id="search-input" placeholder="Şehir, mekan veya aktivite ara..." class="w-full bg-transparent text-sm py-3 focus:outline-none">
-                </div>
-                <button onclick="filterDestinations()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 rounded-xl text-sm transition-colors">
-                    Ara
-                </button>
-            </div>
-
-            <!-- Categories -->
-            <div class="mt-6 flex flex-wrap items-center justify-center gap-2">
-                <button onclick="setCategory('all')" class="category-btn active px-4 py-2 rounded-xl text-xs font-semibold bg-emerald-600 text-white">Tümü</button>
-                <button onclick="setCategory('tarih')" class="category-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200">Tarihi Yerler</button>
-                <button onclick="setCategory('dogal')" class="category-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200">Doğa & Kamp</button>
-                <button onclick="setCategory('deniz')" class="category-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200">Deniz & Koylar</button>
-            </div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4 py-16">
+            <span class="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 mb-4 backdrop-blur-md">
+                <i class="fa-solid fa-compass mr-1.5"></i> Profesyonel Seyahat Portalı
+            </span>
+            <h1 class="text-4xl sm:text-6xl font-bold font-serif tracking-tight text-white mb-4">Türkiye Gezi Rotaları</h1>
+            <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto font-light">Ülkenin en gözde şehirlerini, tarihi yapılarını, doğa harikalarını ve lezzet duraklarını keşfedin.</p>
         </div>
     </section>
 
-    <!-- Ana Kartlar Alanı (Eksik Olan Bölüm) -->
-    <main id="destinations" class="max-w-7xl mx-auto px-4 py-12">
-
-        <!-- Dinamik Arama ve Kategori Filtreleme Alanı -->
-        <div id="dynamic-search-filter-section" class="mb-10 max-w-4xl mx-auto px-2">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
+        <!-- Canlı Arama ve Kategori Filtreleme Çubuğu -->
+        <div class="max-w-3xl mx-auto">
             <div class="flex flex-col md:flex-row items-center justify-between gap-4 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
-                <div class="relative w-full md:w-1/2">
+                <div class="relative w-full md:w-full">
                     <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
-                    <input type="text" id="destination-search-input" placeholder="Mekân, semt veya kategori ara..." class="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all">
-                </div>
-                <div class="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto pb-1 md:pb-0 text-xs font-medium" id="category-filter-buttons">
-                    <button data-filter="all" class="filter-btn active bg-slate-900 text-white px-3.5 py-2 rounded-xl transition-all">Tümü</button>
-                    <button data-filter="history" class="filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 px-3.5 py-2 rounded-xl transition-all">Tarih</button>
-                    <button data-filter="sea" class="filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 px-3.5 py-2 rounded-xl transition-all">Manzara</button>
-                    <button data-filter="museum" class="filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 px-3.5 py-2 rounded-xl transition-all">Müze</button>
+                    <input type="text" id="destination-search-input" placeholder="Şehir veya bölge ara (Örn: İstanbul, Bodrum, Kapadokya)..." class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all">
                 </div>
             </div>
         </div>
 
-        <div class="flex justify-between items-center mb-8">
-            <h2 class="text-2xl font-bold text-slate-900">Popüler Gezi Noktaları</h2>
-            <span id="result-count" class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-lg">Listeleniyor</span>
-        </div>
+        <!-- Destinasyon Kartları Alanı -->
+        <section id="destinations">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-serif font-bold text-slate-900">Popüler Destinasyonlar</h2>
+                <p class="text-slate-500 text-sm mt-2">Gitmek istediğiniz şehri seçerek detaylı rehbere ulaşın</p>
+            </div>
 
-        <!-- Dinamik Kartların Basılacağı Alan -->
-        <div id="cards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- İstanbul Kartı -->
+                <div class="dest-card bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 group flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&w=800&q=80&fm=webp" alt="İstanbul" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-slate-900/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full">Metropol & Tarih</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                        <div>
+                            <h3 class="text-xl font-bold font-serif text-slate-900 mb-2">İstanbul Gezi Rehberi</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Ayasofya'dan Yerebatan'a, Boğaziçi'nden tarihi saraylara uzanan iki kıta rotası.</p>
+                        </div>
+                        <a href="https://dogamanzara243-hue.github.io/gezi-rotasi-istanbul/" class="inline-flex items-center justify-center w-full py-2.5 px-4 bg-slate-900 hover:bg-indigo-600 text-white rounded-xl text-sm font-semibold transition-colors">
+                            Rehbere Git <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Ankara Kartı -->
+                <div class="dest-card bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 group flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1589030343991-69ea1433b941?auto=format&fit=crop&w=800&q=80&fm=webp" alt="Ankara" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-amber-700/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full">Başkent & Kültür</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                        <div>
+                            <h3 class="text-xl font-bold font-serif text-slate-900 mb-2">Ankara Gezi Rehberi</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Anıtkabir, Ankara Kalesi ve Anadolu Medeniyetleri Müzesi ile başkent rotası.</p>
+                        </div>
+                        <a href="https://dogamanzara243-hue.github.io/gezi-rotasi-ankara/" class="inline-flex items-center justify-center w-full py-2.5 px-4 bg-amber-600 hover:bg-amber-700 text-white rounded-xl text-sm font-semibold transition-colors">
+                            Rehbere Git <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- İzmir Kartı -->
+                <div class="dest-card bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 group flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1589030343991-69ea1433b941?auto=format&fit=crop&w=800&q=80&fm=webp" alt="İzmir" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-sky-600/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full">Ege & Deniz</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                        <div>
+                            <h3 class="text-xl font-bold font-serif text-slate-900 mb-2">İzmir Gezi Rehberi</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Kordon'dan Efes Antik Kenti'ne, Alaçatı'dan Şirince'ye Ege'nin incisi.</p>
+                        </div>
+                        <a href="https://dogamanzara243-hue.github.io/gezi-rotasi-izmir/" class="inline-flex items-center justify-center w-full py-2.5 px-4 bg-sky-600 hover:bg-sky-700 text-white rounded-xl text-sm font-semibold transition-colors">
+                            Rehbere Git <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Antalya Kartı -->
+                <div class="dest-card bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 group flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=800&q=80&fm=webp" alt="Antalya" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-teal-600/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full">Akdeniz & Plaj</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                        <div>
+                            <h3 class="text-xl font-bold font-serif text-slate-900 mb-2">Antalya Gezi Rehberi</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Kaleiçi, Düden Şelalesi ve turkuaz sularıyla Türk Rivierası rotası.</p>
+                        </div>
+                        <a href="https://dogamanzara243-hue.github.io/gezi-rotasi-antalya/" class="inline-flex items-center justify-center w-full py-2.5 px-4 bg-teal-600 hover:bg-teal-700 text-white rounded-xl text-sm font-semibold transition-colors">
+                            Rehbere Git <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Samsun Kartı -->
+                <div class="dest-card bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 group flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&w=800&q=80&fm=webp" alt="Samsun" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-indigo-600/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full">Karadeniz & Tarih</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                        <div>
+                            <h3 class="text-xl font-bold font-serif text-slate-900 mb-2">Samsun Gezi Rehberi</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Bandırma Vapuru Müzesi ve Şahinkaya Kanyonu ile kurtuluş şehri.</p>
+                        </div>
+                        <a href="https://dogamanzara243-hue.github.io/gezi-rotasi-samsun/" class="inline-flex items-center justify-center w-full py-2.5 px-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-sm font-semibold transition-colors">
+                            Rehbere Git <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Bolu Kartı -->
+                <div class="dest-card bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 group flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80&fm=webp" alt="Bolu" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-emerald-600/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full">Doğa & Orman</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                        <div>
+                            <h3 class="text-xl font-bold font-serif text-slate-900 mb-2">Bolu Gezi Rehberi</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Yedigöller Milli Parkı, Abant ve Gölcük ile huzurlu doğa rotası.</p>
+                        </div>
+                        <a href="https://dogamanzara243-hue.github.io/gezi-rotasi-bolu/" class="inline-flex items-center justify-center w-full py-2.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-sm font-semibold transition-colors">
+                            Rehbere Git <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Muğla Kartı -->
+                <div class="dest-card bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 group flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=800&q=80&fm=webp" alt="Muğla" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-cyan-600/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full">Koylar & Tatil</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                        <div>
+                            <h3 class="text-xl font-bold font-serif text-slate-900 mb-2">Muğla Gezi Rehberi</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Bodrum, Fethiye Ölüdeniz ve eşsiz turkuaz koylar.</p>
+                        </div>
+                        <a href="https://dogamanzara243-hue.github.io/gezi-rotasi-mugla/" class="inline-flex items-center justify-center w-full py-2.5 px-4 bg-cyan-600 hover:bg-cyan-700 text-white rounded-xl text-sm font-semibold transition-colors">
+                            Rehbere Git <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Gaziantep Kartı -->
+                <div class="dest-card bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 group flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&w=800&q=80&fm=webp" alt="Gaziantep" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-amber-600/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full">Gastronomi & Tarih</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                        <div>
+                            <h3 class="text-xl font-bold font-serif text-slate-900 mb-2">Gaziantep Gezi Rehberi</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Zeugma Mozaik Müzesi ve dünya tescilli Antep mutfağı.</p>
+                        </div>
+                        <a href="https://dogamanzara243-hue.github.io/gezi-rotasi-gaziantep/" class="inline-flex items-center justify-center w-full py-2.5 px-4 bg-amber-600 hover:bg-amber-700 text-white rounded-xl text-sm font-semibold transition-colors">
+                            Rehbere Git <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hatay Kartı -->
+                <div class="dest-card bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 group flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&w=800&q=80&fm=webp" alt="Hatay" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-orange-600/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full">Medeniyet & Lezzet</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                        <div>
+                            <h3 class="text-xl font-bold font-serif text-slate-900 mb-2">Hatay Gezi Rehberi</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">St. Pierre Kilisesi, mozaikler ve meşhur Antakya künefesi.</p>
+                        </div>
+                        <a href="https://dogamanzara243-hue.github.io/gezi-rotasi-hatay/" class="inline-flex items-center justify-center w-full py-2.5 px-4 bg-orange-600 hover:bg-orange-700 text-white rounded-xl text-sm font-semibold transition-colors">
+                            Rehbere Git <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-white border-t border-slate-100 py-8 text-center text-xs text-slate-500">
-        <p>&copy; 2026 GezginRehberi. Tüm hakları saklıdır.</p>
-    </footer>
-
-    <!-- Script Bağlantıları -->
-    <script src="js/rotalar.js"></script>
-    <script src="js/main.js"></script>
-
-<script>
-    // Otomatik Eklenen Kullanıcı Deneyimi ve Arama/Filtre İyileştirmesi
-    document.addEventListener("DOMContentLoaded", () => {
-        console.log("Gezi Rehberi Akıllı Arayüz Aktif 🚀");
-        // Kartlara hover ve animasyon efekti desteği
-        const cards = document.querySelectorAll('.grid > div');
-        cards.forEach(card => {
-            card.classList.add('transition-all', 'duration-300');
-        });
-    });
-</script>
-
-
-    <!-- Interaktif Arama, Filtreleme ve Back to Top Butonu Scripti -->
     <button id="back-to-top-btn" class="fixed bottom-6 right-6 z-50 bg-slate-900 text-white p-3.5 rounded-full shadow-2xl opacity-0 pointer-events-none transition-all duration-300 hover:scale-110 focus:outline-none" title="Yukarı Çık">
         <i class="fa-solid fa-arrow-up text-base"></i>
     </button>
 
+    <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 text-center text-sm mt-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>© 2026 Akıllı Gezi Rehberi Projesi. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
     <script>
     document.addEventListener("DOMContentLoaded", () => {
-        // Back to top butonu kontrolü
         const topBtn = document.getElementById("back-to-top-btn");
         if(topBtn) {
             window.addEventListener("scroll", () => {
@@ -173,43 +260,22 @@
                     topBtn.classList.remove("opacity-100");
                 }
             });
-            topBtn.addEventListener("click", () => {
-                window.scrollTo({ top: 0, behavior: "smooth" });
-            });
+            topBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
         }
 
-        // Canlı Arama ve Filtreleme Mantığı
+        // Canlı Arama Filtresi
         const searchInput = document.getElementById("destination-search-input");
-        const filterBtns = document.querySelectorAll(".filter-btn");
-
-        function filterContent() {
-            const query = searchInput ? searchInput.value.toLowerCase() : "";
-            const activeBtn = document.querySelector(".filter-btn.active");
-            const filterValue = activeBtn ? activeBtn.getAttribute("data-filter") : "all";
-
-            const cards = document.querySelectorAll("#why-visit-cards > div, #must-see-items > div, .grid > div");
-            cards.forEach(card => {
-                const text = card.textContent.toLowerCase();
-                const matchesSearch = text.includes(query);
-                card.style.display = matchesSearch ? "" : "none";
+        if(searchInput) {
+            searchInput.addEventListener("input", (e) => {
+                const query = e.target.value.toLowerCase();
+                const cards = document.querySelectorAll(".dest-card");
+                cards.forEach(card => {
+                    const text = card.textContent.toLowerCase();
+                    card.style.display = text.includes(query) ? "" : "none";
+                });
             });
         }
-
-        if(searchInput) searchInput.addEventListener("input", filterContent);
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener("click", () => {
-                filterBtns.forEach(b => {
-                    b.classList.remove("active", "bg-slate-900", "text-white");
-                    b.classList.add("bg-slate-100", "text-slate-700");
-                });
-                btn.classList.add("active", "bg-slate-900", "text-white");
-                btn.classList.remove("bg-slate-100", "text-slate-700");
-                filterContent();
-            });
-        });
     });
     </script>
-
 </body>
-            </html>
+</html>
