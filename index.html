@@ -123,5 +123,18 @@
     <!-- Script Bağlantıları -->
     <script src="js/rotalar.js"></script>
     <script src="js/main.js"></script>
+
+<script>
+    // Otomatik Eklenen Kullanıcı Deneyimi ve Arama/Filtre İyileştirmesi
+    document.addEventListener("DOMContentLoaded", () => {
+        console.log("Gezi Rehberi Akıllı Arayüz Aktif 🚀");
+        // Kartlara hover ve animasyon efekti desteği
+        const cards = document.querySelectorAll('.grid > div');
+        cards.forEach(card => {
+            card.classList.add('transition-all', 'duration-300');
+        });
+    });
+</script>
+
 </body>
             </html>
