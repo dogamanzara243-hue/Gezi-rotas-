@@ -36,29 +36,32 @@
 <body class="bg-slate-50 text-slate-800 antialiased">
 
     <!-- Header / Navbar -->
-    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-2">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center text-white shadow-lg shadow-emerald-500/20">
-                    <i class="fa-solid fa-compass text-xl"></i>
-                </div>
-                <span class="text-xl font-extrabold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">GezginRehberi</span>
-            </a>
-
-            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-600">
-                <a href="index.html" class="text-emerald-600 font-semibold">Keşfet</a>
-                <a href="#destinations" class="hover:text-emerald-600 transition-colors">Rotalar</a>
-                <a href="#featured" class="hover:text-emerald-600 transition-colors">Günün Önerisi</a>
+        <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-xs transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <nav class="flex items-center space-x-2 sm:space-x-3 text-sm font-medium">
+                <a href="javascript:history.back()" class="flex items-center text-slate-600 hover:text-theme transition-colors py-1 px-2.5 rounded-lg hover:bg-slate-100" title="Önceki Sayfaya Dön">
+                    <i class="fa-solid fa-arrow-left mr-2"></i>
+                    <span class="hidden sm:inline">Önceki Sayfa</span>
+                </a>
+                <span class="text-slate-300">/</span>
+                <a href="https://dogamanzara243-hue.github.io/gezi-rotasi/" class="flex items-center text-slate-600 hover:text-theme transition-colors p-1.5 rounded-lg hover:bg-slate-100" title="Ana Sayfaya Dön">
+                    <i class="fa-solid fa-house"></i>
+                    <span class="ml-1.5 hidden md:inline">Ana Sayfa</span>
+                </a>
+                <span class="text-slate-300">/</span>
+                <span id="breadcrumb-city" class="text-slate-500 font-normal">İstanbul</span>
+                <span class="text-slate-300">/</span>
+                <span id="breadcrumb-title" class="text-theme-dark font-semibold truncate max-w-[140px] sm:max-w-none"></span>
             </nav>
 
-            <button id="mobile-menu-btn" class="md:hidden p-2.5 text-slate-600 hover:bg-slate-100 rounded-xl">
-                <i class="fa-solid fa-bars text-xl"></i>
-            </button>
-        </div>
-
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-100 px-6 py-4 flex flex-col gap-3">
-            <a href="index.html" class="text-emerald-600 font-semibold">Keşfet</a>
-            <a href="#destinations" class="text-slate-600">Rotalar</a>
+            <div class="flex items-center space-x-1 sm:space-x-2">
+                <button id="btn-favorite" class="p-2 text-slate-500 hover:text-rose-500 hover:bg-rose-50 rounded-full transition-all" title="Favorilere Ekle">
+                    <i class="fa-regular fa-heart text-lg"></i>
+                </button>
+                <button id="btn-share" class="p-2 text-slate-500 hover:text-theme hover:bg-slate-100 rounded-full transition-all" title="Sayfayı Paylaş">
+                    <i class="fa-solid fa-share-nodes text-lg"></i>
+                </button>
+            </div>
         </div>
     </header>
 
